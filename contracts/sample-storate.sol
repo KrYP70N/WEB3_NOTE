@@ -9,13 +9,16 @@ pragma solidity 0.8.22; // declare solidity version
 // contract work like a `class`, sae as OOP
 contract SimpleStorage {
     // types : string, boolean, uint, int, address, byte
-    bool hasFav = true;
-    string name = "Aiden";
-    uint num = 112;
-    int numInt = -12;
-    address myWalletAddress = 0xAe852f37212421AEd8113066420DEC709aC175F4;
-    bytes32 myDogName = "sam"; // 0xAe24234BFF inputed string will covert to Byte Code
-    
+    uint public fav; // without assign hasFav variable value will be `0`
+
+    function store(uint _favNumber) public  {
+        fav = _favNumber;
+    }
+
+    function getFav() public view returns(uint) {
+        return fav;
+    }
+
 
 }
 
