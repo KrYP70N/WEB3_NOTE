@@ -8,15 +8,21 @@ pragma solidity 0.8.22; // declare solidity version
 // scope within `contract` keyword will become sol contract
 // contract work like a `class`, sae as OOP
 contract SimpleStorage {
-    // types : string, boolean, uint, int, address, byte
-    uint public fav; // without assign hasFav variable value will be `0`
 
-    function store(uint _favNumber) public  {
-        fav = _favNumber;
+    // People = type, public = visibility, person = name of variable 
+    People public person = People({age: 29, name: "Aiden"}); // People() Object instant
+
+    People[] public people;
+    
+    struct People {
+        uint age;
+        string name;
     }
 
-    function getFav() public view returns(uint) {
-        return fav;
+    function addPerson(string memory name, uint age) public {
+        People memory newPerson = People({name: name, age: age});
+        // people.push(People({name: name, age: age}));
+        people.push(newPerson);
     }
 
 
